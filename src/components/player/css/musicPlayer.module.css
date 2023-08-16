@@ -1,0 +1,9 @@
+
+.music_player {
+    width: 100%;   
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), #2a2a80);
+    backdrop-filter: blur(20px);
+}
+
