@@ -9,6 +9,8 @@ import {
   SongDetails,
   TopCharts,
 } from "./pages";
+import "./App.css";
+
 import MusicPlayer from "./components/player/MusicPlayer";
 import { DataProvider } from "./context/dataContext";
 import { useDataContext } from "./context/dataContext";
