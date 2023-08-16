@@ -9,7 +9,7 @@ const MusicPlayer = (song) => {
       {/* <Track activeSong={song && song.song && song.song.song} /> */}
       <div className={`${Styles.music_player}`}>
         <AudioPlayer
-          autoPlay={false}
+          autoPlay={true}
           autoPlayAfterSrcChange={true}
           src={
             song &&
