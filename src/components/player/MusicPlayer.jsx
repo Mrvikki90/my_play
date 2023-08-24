@@ -17,7 +17,7 @@ const MusicPlayer = (song) => {
             song.song.song &&
             song.song.song.downloadUrl[4].link
           }
-          onPlay={(e) => console.log("onPlay")}
+          // onPlay={(e) => console.log("onPlay")}
           style={{
             background:
               "linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), #2a2a80)",

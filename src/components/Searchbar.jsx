@@ -7,11 +7,20 @@ const Searchbar = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
 
+
+  console.log("seracrh term", searchTerm)
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate(`/search/${searchTerm}`);
+    setSearchTerm("")
+  };
 
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
     navigate(`/search/${searchTerm}`);
   };
+
 
   return (
     <form
@@ -32,7 +41,7 @@ const Searchbar = () => {
           placeholder="Search"
           type="search"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleChange}
         />
       </div>
     </form>

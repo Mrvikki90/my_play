@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-// import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 
 import { Error, Loader, SongCard } from "../components";
-// import { useGetSongsBySearchQuery } from '../redux/services/shazamCore';
+
 
 const Search = () => {
   const { searchTerm } = useParams();
   const [songDetails, setSongDetails] = useState();
 
-  // const { activeSong, isPlaying } = useSelector((state) => state.player);
-  // const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
 
   useEffect(() => {
     const getSearchSong = async () => {
@@ -27,13 +24,9 @@ const Search = () => {
     if (searchTerm) {
       getSearchSong();
     }
-  }, []);
+  }, [searchTerm]);
 
-  // const songs = data?.tracks?.hits.map((song) => song.track);
 
-  // if (isFetching) return <Loader title={`Searching ${searchTerm}...`} />;
-
-  // if (error) return <Error />;
 
   return (
     <div className="flex flex-col">

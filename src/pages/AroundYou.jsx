@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { useSelector } from "react-redux";
 
-import { Error, Loader, SongCard } from "../components";
+import { Error, Loader, PlayListCard } from "../components";
 // import { useGetSongsByCountryQuery } from "../redux/services/shazamCore";
 
 const CountryTracks = () => {
@@ -51,7 +51,7 @@ const CountryTracks = () => {
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
         {topPlayList?.map((song, i) => (
-          <SongCard key={song.id} song={song} data={topPlayList} i={i} />
+          <PlayListCard key={song.id} song={song} data={topPlayList} i={i} />
         ))}
       </div>
     </div>

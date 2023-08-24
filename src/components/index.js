@@ -9,6 +9,7 @@ import SongBar from "./SongBar";
 // import MusicPlayer from "./MusicPlayer";
 import Loader from "./Loader";
 import Error from "./Error";
+import PlayListCard from "./playListCard";
 
 export {
   TopPlay,
@@ -22,4 +23,5 @@ export {
   // MusicPlayer,
   Loader,
   Error,
+  PlayListCard
 };

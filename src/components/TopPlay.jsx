@@ -18,9 +18,8 @@ const TopChartCard = ({
   handlePlayClick,
 }) => (
   <div
-    className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${
-      activeSong?.title === song?.name ? "bg-[#4c426e]" : "bg-transparent"
-    } py-2 p-4 rounded-lg cursor-pointer mb-2`}
+    className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${activeSong?.title === song?.name ? "bg-[#4c426e]" : "bg-transparent"
+      } py-2 p-4 rounded-lg cursor-pointer mb-2`}
   >
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
     <div className="flex-1 flex flex-row justify-between items-center">
@@ -67,9 +66,9 @@ const TopPlay = () => {
   useEffect(() => {
     const getTopCharts = async () => {
       const response = await axios.get(
-        "https://saavn.me/search/songs?query=punjabihits&page=1&limit=5"
+        "https://saavn.me/search/songs?query=slowed+reverb+latest&page=1&limit=5"
       );
-      console.log("response: ", response.data.data);
+      console.log("charts response: ", response.data.data);
       if (response.data.data) {
         setTopCharts(response.data.data.results);
       }
@@ -96,7 +95,6 @@ const TopPlay = () => {
   const initOwlCarousel = (el) => {
     if (typeof el === "function") {
       el.on("initialized", () => {
-        console.log("Owl Carousel initialized");
       });
     }
   };
@@ -106,29 +104,6 @@ const TopPlay = () => {
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
   });
-
-  const options = {
-    loop: true,
-    center: true,
-    items: 3,
-    margin: 0,
-    autoplay: true,
-    dots: true,
-    autoplayTimeout: 8500,
-    smartSpeed: 450,
-    nav: false,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 3,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  };
 
   // const handlePauseClick = () => {
   //   dispatch(playPause(false));
@@ -146,7 +121,7 @@ const TopPlay = () => {
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white font-bold text-2xl">Top Charts</h2>
+          <h2 className="text-white font-bold text-2xl">Slowed And Reverbs</h2>
           <Link to="/top-charts">
             <p className="text-gray-300 text-base cursor-pointer">See more</p>
           </Link>
@@ -172,20 +147,12 @@ const TopPlay = () => {
             <p className="text-gray-300 text-base cursor-pointer">See more</p>
           </Link>
         </div>
-
-        {/* <OwlCarousel
-          ref={(el) => initOwlCarousel(el)}
-          className="owl-carousel owl-theme mt-4"
-          {...options}
-        > */}
-
         <Swiper
           slidesPerView="auto"
           spaceBetween={15}
           freeMode
           centeredSlides
           centeredSlidesBounds
-          // modules={[FreeMode]}
           className="mt-4"
         >
           {topArtists &&
