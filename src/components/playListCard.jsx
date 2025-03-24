@@ -39,7 +39,7 @@ const PlayListCard = ({ song, data, i }) => {
                 </div>
                 <img
                     alt="song_img"
-                    src={song.image[2]?.link}
+                    src={song?.image?.[2]?.url || song?.image?.[1]?.url || song?.image?.[0]?.url }
                     className="w-full h-full rounded-lg"
                 />
             </div>
