@@ -25,7 +25,7 @@ const TopChartCard = ({
         <div className="flex-1 flex flex-row justify-between items-center">
             <img
                 className="w-20 h-20 rounded-lg"
-                src={song?.image[1]?.link}
+                src={song?.image?.[2]?.url || song?.image?.[1]?.url || song?.image?.[0]?.url }
                 alt={song?.title}
             />
             <div className="flex-1 flex flex-col justify-center mx-3">
@@ -63,7 +63,7 @@ const PlayListDetails = () => {
     useEffect(() => {
         const getPlayListDetails = async () => {
             try {
-                const response = await axios.get(`https://saavn.me/playlists?id=${playlistid}`);
+                const response = await axios.get(`https://saavn.dev/api/playlists?id=${playlistid}`);
                 console.log("response", response.data.data);
                 if (response.data.data) {
                     // Manually limit the number of records to 20
