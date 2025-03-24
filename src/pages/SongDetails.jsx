@@ -26,8 +26,8 @@ const SongDetails = () => {
       if (songid) {
         const isSongKeyIdValid = songid.match(/^[a-zA-Z0-9]+$/);
         apiUrl = isSongKeyIdValid
-          ? `https://saavn.me/songs?id=${songid}`
-          : `https://saavn.me/search/songs?query=${encodeURIComponent(
+          ? `https://saavn.dev/api/songs?id=${songid}`
+          : `https://saavn.dev/api/search/songs?query=${encodeURIComponent(
               songid
             )}&page=1&limit=2`;
       }
@@ -51,7 +51,7 @@ const SongDetails = () => {
       const getSongLyrics = async () => {
         try {
           const response = await axios.get(
-            `https://saavn.me/lyrics?id=${songid}`
+            `https://saavn.dev/api/lyrics?id=${songid}`
           );
           if (response.data.status === "FAILED") {
             console.error("Lyrics API request failed:", response.data.message);
