@@ -17,8 +17,8 @@ const Discover = () => {
   useEffect(() => {
     const getDashBoardDetails = async () => {
       const response = await axios.get(
-        `https://saavn.me/search/songs?query=${selectedId || "POP"
-        }&page=1&limit=18`
+        `https://saavn.dev/api/search/songs?query=${selectedId || "DANCE"
+        }&page=1&limit=10`
       );
       console.log("response: ", response.data.data);
       if (response.data.data) {
