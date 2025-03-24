@@ -14,7 +14,7 @@ const Search = () => {
   useEffect(() => {
     const getSearchSong = async () => {
       const response = await axios.get(
-        `https://saavn.me/search/songs?query=${searchTerm}&page=1&limit=2`
+        `https://saavn.dev/api/search/songs?query=${searchTerm}&page=1&limit=2`
       );
       console.log("response", response.data.data);
       if (response.data.data) {
