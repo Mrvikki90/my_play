@@ -26,11 +26,19 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
           alt="profile"
           src={
             artistId
-              ? artistData?.image[1]?.link
-                .replace("{w}", "500")
-                .replace("{h}", "500")
-              : songData?.image[1]?.link
-          }
+              ? artistData?.image?.[2]?.link
+                  .replace("{w}", "500")
+                  .replace("{h}", "500") ||
+                artistData?.image?.[1]?.link
+                  .replace("{w}", "500")
+                  .replace("{h}", "500") ||
+                artistData?.image?.[0]?.link
+                  .replace("{w}", "500")
+                  .replace("{h}", "500")
+              : songData?.image?.[2]?.link ||
+                songData?.image?.[1]?.link ||
+                songData?.image?.[0]?.link
+          }          
           className="sm:w-48 w-28 sm:h-48 h-28 rounded-full object-cover border-2 shadow-xl shadow-black"
         />
 
