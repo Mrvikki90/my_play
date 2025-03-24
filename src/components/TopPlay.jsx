@@ -25,7 +25,8 @@ const TopChartCard = ({
     <div className="flex-1 flex flex-row justify-between items-center">
       <img
         className="w-20 h-20 rounded-lg"
-        src={song?.image[1]?.link}
+        src={song?.image?.[2]?.url || song?.image?.[1]?.url || song?.image?.[0]?.url }
+
         alt={song?.title}
       />
       <div className="flex-1 flex flex-col justify-center mx-3">
@@ -66,7 +67,7 @@ const TopPlay = () => {
   useEffect(() => {
     const getTopCharts = async () => {
       const response = await axios.get(
-        "https://saavn.me/search/songs?query=slowed+reverb+latest&page=1&limit=5"
+        "https://saavn.dev/api/search/songs?query=slowed+reverb+latest&page=1&limit=5"
       );
       console.log("charts response: ", response.data.data);
       if (response.data.data) {
@@ -83,7 +84,7 @@ const TopPlay = () => {
   useEffect(() => {
     const getTopArtists = async () => {
       const response = await axios.get(
-        "https://saavn.me/search/artists?query=top-artist"
+        "https://saavn.dev/api/search/artists?query=top-artist"
       );
       if (response.data.data) {
         setTopArtists(response.data.data.results);
@@ -164,7 +165,7 @@ const TopPlay = () => {
               >
                 <Link to={`/artists/${artist?.id}`}>
                   <img
-                    src={artist?.image[2]?.link}
+                    src={artist?.image?.[2]?.url || artist?.image?.[1]?.url || artist?.image?.[0]?.url }
                     alt="Name"
                     className="rounded-full w-full object-cover"
                   />
