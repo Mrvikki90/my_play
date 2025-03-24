@@ -6,13 +6,12 @@ const TopCharts = () => {
   const [topCharts, setTopCharts] = useState([]);
   const [error, setError] = useState(false);
 
-  console.log("error log", error)
 
   useEffect(() => {
     const getTopCharts = async () => {
       try {
         const response = await axios.get(
-          "https://saavn.me/search/songs?query=slowed+reverb+latest&page=1&limit=18"
+          "https://saavn.dev/api/search/songs?query=slowed+reverb+latest&page=1&limit=18"
         );
         if (response.data.data) {
           setTopCharts(response.data.data.results);
