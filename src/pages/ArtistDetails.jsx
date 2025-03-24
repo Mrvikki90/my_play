@@ -28,7 +28,7 @@ const TopChartCard = ({
     <div className="flex-1 flex flex-row justify-between items-center">
       <img
         className="w-20 h-20 rounded-lg"
-        src={song?.image[1]?.link}
+        src={song?.image?.[2]?.url || song?.image?.[1]?.url || song?.image?.[0]?.url }
         alt={song?.title}
       />
       <div className="flex-1 flex flex-col justify-center mx-3">
@@ -69,7 +69,7 @@ const ArtistDetails = () => {
   useEffect(() => {
     const getPlayList = async () => {
       const response = await axios.get(
-        `https://saavn.me/artists?id=${artistId}`
+        `https://saavn.dev/api/artists?id=${artistId}`
       );
       console.log("response", response.data.data);
       if (response.data.data) {
@@ -84,7 +84,7 @@ const ArtistDetails = () => {
   useEffect(() => {
     const getArtistDetails = async () => {
       const response = await axios.get(
-        `https://saavn.me/artists/${artistId}/songs?page=1`
+        `https://saavn.dev/api/artists/${artistId}/songs?page=1`
       );
       console.log("response od rtistr songs", response.data.data);
       if (response.data.data) {
