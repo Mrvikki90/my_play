@@ -16,7 +16,7 @@ const CountryTracks = () => {
   useEffect(() => {
     const getPlayList = async () => {
       const response = await axios.get(
-        "https://saavn.me/modules?language=hindi,english"
+        "https://saavn.dev/api/modules?language=hindi,english"
       );
       console.log(response.data.data.playlists);
       if (response.data.data) {
