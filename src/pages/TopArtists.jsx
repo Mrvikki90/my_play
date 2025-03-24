@@ -15,9 +15,10 @@ const TopArtists = () => {
   useEffect(() => {
     const getTopCharts = async () => {
       const response = await axios.get(
-        "https://saavn.me/search/artists?query=top-artist"
+        "https://saavn.dev/api/search/artists?query=top-artist"
       );
       if (response.data.data) {
+        console.log("get top charts=====>", response.data.data)
         setTopArtists(response.data.data.results);
       }
     };
